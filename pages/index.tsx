@@ -1,6 +1,8 @@
+import NewsArticlesGrid from "@/components/NewsArticlesGrid";
 import { NewsArticle, NewsResponse } from "@/models/NewsArticles";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
+import { Alert } from "react-bootstrap";
 
 interface BreakingNewsPageProps {
   newsArticles: NewsArticle[],
@@ -12,6 +14,8 @@ export const getServerSideProps: GetServerSideProps<BreakingNewsPageProps> = asy
   return {
     props: { newsArticles: newsResponse.articles },
   }
+
+  // let error go to 500 page
 }
 
 export default function BreakingNewsPage({ newsArticles }: BreakingNewsPageProps) {
@@ -22,7 +26,10 @@ export default function BreakingNewsPage({ newsArticles }: BreakingNewsPageProps
       </Head>
       <main>
         <h1>Breaking News</h1>
-        {JSON.stringify(newsArticles)}
+        <Alert>
+          This page user <strong>getServerSideProps</strong> to fetch data server-side on every request. This allows search engines to crawl the page content and <strong>improves SEO</strong>.
+        </Alert>
+        <NewsArticlesGrid articles={newsArticles} />
       </main>
     </>
   )
