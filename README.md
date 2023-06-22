@@ -1,4 +1,4 @@
-#First project in Next.js
+# First project in Next.js
 
 Project done after attending [NextJS Full Beginner Course [2023] [typescript]](https://youtu.be/e1EIwuO-Dlo).
 
